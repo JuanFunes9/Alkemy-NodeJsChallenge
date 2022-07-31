@@ -2,6 +2,7 @@ const router = require( 'express' ).Router();
 const { check } = require( 'express-validator' );
 //middleware:
 const validarCampos = require( '../middlewares/validar-campos' );
+const validarJWT = require( '../middlewares/validar-jwt' );
 //helpers:
 const validarId = require( '../helpers/validar-id' );
 //controller:
@@ -14,14 +15,16 @@ const {
 } = require( '../controllers/personajes.controller' )
 
 //rutes:
-router.get( '/', getPersonajes );
+router.get( '/', validarJWT, getPersonajes );
 
 router.get( '/:id', [
-  check( 'id', 'Ingrese un ID numerico valido mayor a 0.' ).isInt({ min: 0 }),
+  validarJWT,
+  check( 'id', 'Ingrese un ID numerico valido mayor a 0' ).isInt({ min: 0 }),
   validarCampos
 ], getPersonajesById );
 
 router.post( '/', [
+  validarJWT,
   check( 'img', 'La imagen URL es obligatoria.' ).notEmpty(),
   check( 'name', 'El nombre es obligatorio.' ).notEmpty(),
   check( 'age', 'La edad debe ser un valor numerico entre 0 y 200.' ).notEmpty().isInt({min: 0, max: 200}),
@@ -31,6 +34,7 @@ router.post( '/', [
 ], newPersonaje );
 
 router.put( '/:id', [
+  validarJWT,
   check( 'img', 'La imagen URL es obligatoria.' ).notEmpty(),
   check( 'name', 'El nombre es obligatorio.' ).notEmpty(),
   check( 'age', 'La edad debe ser un valor numerico entre 0 y 200.' ).notEmpty().isInt({min: 0, max: 200}),
@@ -42,6 +46,7 @@ router.put( '/:id', [
 ], editPersonaje );
 
 router.delete( '/:id', [
+  validarJWT,
   check( 'id', 'Ingrese un ID numerico valido mayor a 0.' ).isInt({ min: 0 }),
   check( 'id' ).custom( validarId ),
   validarCampos

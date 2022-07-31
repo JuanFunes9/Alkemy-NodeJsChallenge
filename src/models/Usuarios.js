@@ -1,34 +1,27 @@
 const { DataTypes } = require( 'sequelize' );
 const sequelize = require( '../database/database' );
 
-const Personajes = sequelize.define( 'personajes', {
-  id: {
+const Usuarios = sequelize.define( 'usuarios', {
+  uid: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true
   },
-  img: {
+  userName: {
     type: DataTypes.STRING,
     allowNull: false
   },
-  name: {
+  password: {
     type: DataTypes.STRING,
     allowNull: false
   },
-  age: {
-    type: DataTypes.INTEGER,
-    allowNull: false
-  },
-  weight: {
-    type: DataTypes.FLOAT,
-    allowNull: false
-  },
-  history: {
+  email: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
+    unique: true
   }
 }, {
   timestamps: false
 } );
 
-module.exports = Personajes;
+module.exports = Usuarios;

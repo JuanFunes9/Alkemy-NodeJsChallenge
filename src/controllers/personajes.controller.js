@@ -1,32 +1,32 @@
 const { Op } = require('sequelize');
 //model:
-const Personajes = require( '../models/Personajes' );
+const Personajes = require('../models/Personajes');
 
-const getPersonajes = async( req, res ) => {
+const getPersonajes = async (req, res) => {
   const { name, age, weight, movies } = req.query;
 
   let query = {
-    attributes: [ "id", "img", "name"]
+    attributes: ["id", "img", "name"]
   }
 
-  if( name ){
+  if (name) {
     query.where = { name: { [Op.substring]: name } }
-  } else if ( age ){
+  } else if (age) {
     query.where = { age: { [Op.eq]: age } }
-  } else if ( weight ){
+  } else if (weight) {
     query.where = { weight: { [Op.eq]: weight } }
-  } else if ( movies ){
+  } else if (movies) {
     query.where = { movies: { [Op.eq]: movies } }
   }
 
-  const personajes = await Personajes.findAll( query );
+  const personajes = await Personajes.findAll(query);
 
   return res.json({
     personajes
   });
 }
 
-const getPersonajesById = async( req, res ) => {
+const getPersonajesById = async (req, res) => {
   const { id } = req.params;
   const personaje = await Personajes.findOne({
     where: {
@@ -34,9 +34,9 @@ const getPersonajesById = async( req, res ) => {
     }
   })
 
-  if( !personaje ){
+  if (!personaje) {
     return res.status(400).json({
-      error: `El personaje con el ID: ${ id } no existe.`
+      error: `El personaje con el ID: ${id} no existe.`
     })
   } else {
     return res.json({
@@ -45,7 +45,7 @@ const getPersonajesById = async( req, res ) => {
   }
 }
 
-const newPersonaje = async( req, res ) => {
+const newPersonaje = async (req, res) => {
   let { img, name, age, weight, history } = req.body;
   name = name.toLowerCase();
 
@@ -60,7 +60,7 @@ const newPersonaje = async( req, res ) => {
   return res.json({ newPersonaje });
 }
 
-const editPersonaje = async( req, res ) => {
+const editPersonaje = async (req, res) => {
   const { id } = req.params;
   let { img, name, age, weight, history } = req.body;
   name = name.toLowerCase();
@@ -71,17 +71,17 @@ const editPersonaje = async( req, res ) => {
     age,
     weight,
     history
-  },{
+  }, {
     where: { id }
   })
 
   return res.json({
-    msg: `El personaje con ID: ${ id } ha sido editado con exito.`
+    msg: `El personaje con ID: ${id} ha sido editado con exito.`
   })
 
 }
 
-const deletePersonaje = async( req, res ) => {
+const deletePersonaje = async (req, res) => {
   const { id } = req.params;
 
   const deletedPersonaje = await Personajes.destroy({
@@ -89,7 +89,7 @@ const deletePersonaje = async( req, res ) => {
   })
 
   res.json({
-    msg: `El personaje con ID: ${ id } ha sido eliminado con exito.`
+    msg: `El personaje con ID: ${id} ha sido eliminado con exito.`
   })
 }
 

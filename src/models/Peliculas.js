@@ -1,7 +1,7 @@
 const { DataTypes } = require( 'sequelize' );
 const sequelize = require( '../database/database' );
 
-const Personajes = sequelize.define( 'personajes', {
+const Peliculas = sequelize.define( 'peliculas', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -11,19 +11,23 @@ const Personajes = sequelize.define( 'personajes', {
     type: DataTypes.STRING,
     allowNull: false
   },
-  name: {
+  title: {
     type: DataTypes.STRING,
     allowNull: false
   },
-  age: {
+  year: {
     type: DataTypes.INTEGER,
     allowNull: false
   },
-  weight: {
+  rate: {
     type: DataTypes.FLOAT,
     allowNull: false
   },
-  history: {
+  gender: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  type: {
     type: DataTypes.STRING,
     allowNull: false
   }
@@ -31,4 +35,4 @@ const Personajes = sequelize.define( 'personajes', {
   timestamps: false
 } );
 
-module.exports = Personajes;
+module.exports = Peliculas;
