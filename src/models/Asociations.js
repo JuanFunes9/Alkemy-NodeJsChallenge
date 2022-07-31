@@ -3,21 +3,20 @@ const { DataTypes } = require('sequelize');
 //models:
 const Peliculas = require('./Peliculas');
 const Personajes = require('./Personajes');
-const Usuarios = require('./Usuarios');
 
 //Tabla intermedia para la relacion N-a-N
-const peliculasPersonajes = sequelize.define('peliculas_personajes', {
-  peliculaId: {
-    type: DataTypes.INTEGER,
-    references: {
-      model: Peliculas,
-      key: 'id'
-    }
-  },
+const personajesPeliculas = sequelize.define('personajes_peliculas', {
   personajeId: {
     type: DataTypes.INTEGER,
     references: {
       model: Personajes,
+      key: 'id'
+    }
+  },
+  peliculaId: {
+    type: DataTypes.INTEGER,
+    references: {
+      model: Peliculas,
       key: 'id'
     }
   }
@@ -28,5 +27,7 @@ const peliculasPersonajes = sequelize.define('peliculas_personajes', {
 
 
 //relaciones N a N:
-Peliculas.belongsToMany(Personajes, { through: peliculasPersonajes });
-Personajes.belongsToMany(Peliculas, { through: peliculasPersonajes });
+Peliculas.belongsToMany(Personajes, { through: personajesPeliculas });
+Personajes.belongsToMany(Peliculas, { through: personajesPeliculas });
+
+module.exports = personajesPeliculas;

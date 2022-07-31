@@ -24,6 +24,8 @@ router.get('/:id', validarGetPeliculaById, getMovieById)
 
 router.post('/', validarNewPelicula, newMovie)
 
+router.post( '/:idPersonaje/movie/:idPelicula',  )
+
 router.put('/:id', validarEditPelicula, editMovie)
 
 router.delete('/:id', validarDeletePelicula, deleteMovie)
