@@ -2,6 +2,7 @@ const { check } = require( 'express-validator' );
 const validarJWT = require( './validar-jwt' );
 const validarCampos = require( './validar-campos' );
 const validarIdPersonaje = require( '../helpers/validar-id-personaje' );
+const validarIdPelicula = require( '../helpers/validar-id-pelicula' );
 
 
 const validarGetPersonajeById = [
@@ -39,9 +40,19 @@ const validarDeletePersonaje = [
   validarCampos
 ]
 
+const validarNewPersonajeMovie =[
+  validarJWT,
+  check( 'personajeId', "Debes ingresar un ID valido mayor a 0" ).isInt({ min: 0 }),
+  check( 'personajeId' ).custom( validarIdPersonaje ),
+  check( 'peliculaId', "Debes ingresar un ID valido mayor a 0" ).isInt({ min: 0 }),
+  check( 'peliculaId' ).custom( validarIdPelicula ),
+  validarCampos
+]
+
 module.exports = {
   validarGetPersonajeById,
   validarNewPersonaje,
   validarEditPersonaje,
-  validarDeletePersonaje
+  validarDeletePersonaje,
+  validarNewPersonajeMovie
 }

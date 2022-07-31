@@ -2,6 +2,7 @@ const { Op } = require('sequelize');
 //model:
 const Personajes = require('../models/Personajes');
 const Peliculas = require( '../models/Peliculas' );
+const personajesPeliculas = require( '../models/Asociations' );
 
 const getPersonajes = async (req, res) => {
   const { name, age, weight, movies } = req.query;
@@ -64,6 +65,19 @@ const newPersonaje = async (req, res) => {
   return res.json({ newPersonaje });
 }
 
+const newPersonajeMovie = async( req, res ) => {
+  const { personajeId, peliculaId } = req.params;
+
+  await personajesPeliculas.create({
+    personajeId,
+    peliculaId
+  })
+
+  return res.json({
+    msg: `Se ha agregado la pelicula ID: ${ peliculaId } al pesonaje ID: ${ personajeId } `
+  })
+}
+
 const editPersonaje = async (req, res) => {
   const { id } = req.params;
   const { img, name, age, weight, history } = req.body;
@@ -100,6 +114,7 @@ module.exports = {
   getPersonajes,
   getPersonajesById,
   newPersonaje,
+  newPersonajeMovie,
   editPersonaje,
   deletePersonaje
 };

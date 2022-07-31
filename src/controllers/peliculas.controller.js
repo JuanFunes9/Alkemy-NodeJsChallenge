@@ -1,5 +1,6 @@
 const { Op } = require('sequelize');
 //model:
+const Personajes = require('../models/Personajes');
 const Peliculas = require( '../models/Peliculas' )
 
 const getMovies = async( req, res ) => {
@@ -31,9 +32,15 @@ const getMovies = async( req, res ) => {
 const getMovieById = async( req, res ) => {
   const { id } = req.params;
 
-  const pelicula = await Peliculas.findOne({
-    where: { id }
-  });
+  const pelicula = await Peliculas.findByPk( id, {
+    include: {
+      model: Personajes,
+      as: 'personajes',
+      through: {
+        attributes: []
+      }
+    }
+  } );
 
   if( !pelicula ){
     return res.status(400).json({
