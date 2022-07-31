@@ -1,0 +1,403 @@
+{
+  "info": {
+    "_postman_id": "b73ce5ac-dc8c-45a1-9255-c5372cffc13b",
+    "name": "Alkemy Challenge - Node.js",
+    "description": "Este challenge fue hecho por el alumno **Juan Ignacio Funes** para la postulación al bootcamp de **Alkemy**.\n\n**LinkedIn**: [https://www.linkedin.com/in/juanfunes-/](https://www.linkedin.com/in/juanfunes-/)  \n**GitHub**: [https://github.com/JuanFunes9/Alkemy-challenge](https://github.com/JuanFunes9/Alkemy-challenge)  \n**Página personal**: [https://juan-funes.herokuapp.com/](https://juan-funes.herokuapp.com/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "20728281"
+  },
+  "item": [
+    {
+      "name": "Auth routes",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"userName\": \"JuanF\",\r\n    \"password\": \"super-secret\",\r\n    \"email\": \"juan@gmail.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/auth/register",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["auth", "register"]
+            },
+            "description": "# ***Register***\n\n*   Para registrarse es necesario enviar en el **body** un objeto JSON que contenga los 3 campos observados en el ejemplo.\n*   No esta permitido registrar emails que ya existan en la base de datos.\n*   Una vez enviada una petición válida, se guardaran los datos del usuario en la bbdd (con la contraseña encriptada) y se enviara un mensaje de bienvenida al email proporcionado.\n*   Para obtener el token de acceso, será necesario loguearse en el endpoint correspondiente con usuario y contraseña."
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"userName\": \"JuanF\",\r\n    \"password\": \"super-secret\",\r\n    \"email\": \"juan@gmail.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/auth/login",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["auth", "login"]
+            },
+            "description": "# ***Login***\n\n*   En este endpoint se debe proporcionar en el **body** un objeto JSON que contenga 3 claves: usuario, contraseña e email.\n*   Los mismos ya deben de estar registrados en la bbdd y deben pertenecer a un usuario existente.\n*   Si se envia una petición válida, se retornara información del usuario autenticado más el JWT correspondiente.\n*   Para acceder a los endpoints, el JWT deberá ser enviado en los headers de cada petición de la siguiente manera: ***x-token=JWT***\n*   El JWT tiene un tiempo de vida de 4 hs desde el momento en que se crea."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Personajes Rutas",
+      "item": [
+        {
+          "name": "getPersonajes",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTY1OTI1MDc2OSwiZXhwIjoxNjU5MjY1MTY5fQ.z2sDX4aRdrJu3ZZL1bPghDehtNgnODKY2S_5IddHIko",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/characters",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["characters"],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "mickey",
+                  "disabled": true
+                },
+                {
+                  "key": "age",
+                  "value": "102",
+                  "disabled": true
+                },
+                {
+                  "key": "weight",
+                  "value": "20",
+                  "disabled": true
+                },
+                {
+                  "key": "movies",
+                  "value": "2",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "# ***Get All Personajes / Buscar Personajes***\n\nEn este endpoint, si no se incluyen parametros de busqueda (querys), se devuelve un array que contiene todos los personajes presentes en la base de datos. De lo contrario se devuelve un array con los resultados de la busqueda correspondiente.\n\n## ***Querys***\n\n*   ***?name=nombreABuscar***\n*   **?age=edadABuscar**\n*   **?weight=pesoABuscar**\n*   **?movies=idPeliculas**"
+          },
+          "response": []
+        },
+        {
+          "name": "getPersonajesByID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTY1OTI1OTExNSwiZXhwIjoxNjU5MjczNTE1fQ.Ge4DZ9IL9LE5vaWeFBiuRMeGnc1bcJL9iRT5gyUzHH8",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/characters/11",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["characters", "11"]
+            },
+            "description": "# ***Get Personaje by ID***\n\nEn este endpoint se incluye un numero ID en los **req.params**. Si este ID coincide con algún id de personaje, este será devuelto."
+          },
+          "response": []
+        },
+        {
+          "name": "postPersonaje",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTY1OTI1OTExNSwiZXhwIjoxNjU5MjczNTE1fQ.Ge4DZ9IL9LE5vaWeFBiuRMeGnc1bcJL9iRT5gyUzHH8",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n        \"img\": \"https://static.wikia.nocookie.net/disney/images/4/44/Capit%C3%A1nGarfio.png/revision/latest?cb=20121207105436&path-prefix=es\",\r\n        \"name\": \"Captain James Hook\",\r\n        \"age\": 42,\r\n        \"weight\": 84,\r\n        \"history\": \"Captain James Hook (Capitán James Garfio en español) es el villano principal de la película Peter Pan. Es uno de los villanos más malvados de Disney.\"\r\n    }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/characters",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["characters"]
+            },
+            "description": "# ***New Personaje***\n\n*   Recibe en el body un objeto JSON con la información del nuevo personaje. Es importante completar todos los campos con información válida: Ver ejemplo."
+          },
+          "response": []
+        },
+        {
+          "name": "putPersonaje",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "x-token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTY1OTI1OTExNSwiZXhwIjoxNjU5MjczNTE1fQ.Ge4DZ9IL9LE5vaWeFBiuRMeGnc1bcJL9iRT5gyUzHH8",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n        \"img\": \"https://static.wikia.nocookie.net/disney/images/4/44/Capit%C3%A1nGarfio.png/revision/latest?cb=20121207105436&path-prefix=es\",\r\n        \"name\": \"Captain James Hook edited\",\r\n        \"age\": 42,\r\n        \"weight\": 84,\r\n        \"history\": \"Captain James Hook (Capitán James Garfio en español) es el villano principal de la película Peter Pan. Es uno de los villanos más malvados de Disney.\"\r\n    }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/characters/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["characters", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "11"
+                }
+              ]
+            },
+            "description": "# ***Edit Personaje***\n\n*   Este endpoint recibe un objeto JSON en el body con los mismos campos que el endpoint '**postPersonaje**', con la diferencia que este también recibe un ID numérico en los req.params que se usara para determinar que personaje se debe actualizar con la información del body."
+          },
+          "response": []
+        },
+        {
+          "name": "deletePersonaje",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "x-token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTY1OTI1OTExNSwiZXhwIjoxNjU5MjczNTE1fQ.Ge4DZ9IL9LE5vaWeFBiuRMeGnc1bcJL9iRT5gyUzHH8",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/characters/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["characters", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "11"
+                }
+              ]
+            },
+            "description": "# ***Delete Personaje***\n\n*   Este endpoint recibe un ID en los params que especifica que personaje se debe borrar. Si se encuentra una coincidencia, el personaje con ese ID será borrado."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Películas Rutas",
+      "item": [
+        {
+          "name": "getMovies",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTY1OTI1OTExNSwiZXhwIjoxNjU5MjczNTE1fQ.Ge4DZ9IL9LE5vaWeFBiuRMeGnc1bcJL9iRT5gyUzHH8",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/movies",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["movies"],
+              "query": [
+                {
+                  "key": "title",
+                  "value": "christmas",
+                  "disabled": true
+                },
+                {
+                  "key": "order",
+                  "value": "DESC",
+                  "description": "ASC || DESC",
+                  "disabled": true
+                },
+                {
+                  "key": "gender",
+                  "value": "comedy",
+                  "description": "'fantasy', 'action', 'comedy', 'terror', 'super-heros'",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "# ***Get Películas / Buscar Películas***\n\n*   Si no se especifíca una query trae todas las películas presentes en la bbdd. De lo contrario devuelve los resultados de la búsqueda."
+          },
+          "response": []
+        },
+        {
+          "name": "getMovieById",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTY1OTI1OTExNSwiZXhwIjoxNjU5MjczNTE1fQ.Ge4DZ9IL9LE5vaWeFBiuRMeGnc1bcJL9iRT5gyUzHH8",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/movies/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["movies", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "12"
+                }
+              ]
+            },
+            "description": "# ***Get movie By ID***\n\n*   Recibe en los params el ID de la película a buscar."
+          },
+          "response": []
+        },
+        {
+          "name": "postMovie",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTY1OTI1OTExNSwiZXhwIjoxNjU5MjczNTE1fQ.Ge4DZ9IL9LE5vaWeFBiuRMeGnc1bcJL9iRT5gyUzHH8",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"img\": \"https://static.wikia.nocookie.net/disney/images/2/25/ToyStory.png/revision/latest?cb=20140419065553&path-prefix=es\",\r\n    \"title\": \"Toy Story\",\r\n    \"year\": 1995,\r\n    \"rate\": 5,\r\n    \"gender\": \"fantasy\",\r\n    \"type\": \"pelicula\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/movies",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["movies"]
+            },
+            "description": "# ***Nueva Película***\n\n*   Este enpoint recibe un objeto JSON de las características especificadas en el ejemplo. Es importante completar todos los campos con información válida."
+          },
+          "response": []
+        },
+        {
+          "name": "editMovie",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "x-token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTY1OTI1OTExNSwiZXhwIjoxNjU5MjczNTE1fQ.Ge4DZ9IL9LE5vaWeFBiuRMeGnc1bcJL9iRT5gyUzHH8",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"img\": \"https://static.wikia.nocookie.net/disney/images/2/25/ToyStory.png/revision/latest?cb=20140419065553&path-prefix=es\",\r\n    \"title\": \"Toy Story 2\",\r\n    \"year\": 1995,\r\n    \"rate\": 5,\r\n    \"gender\": \"fantasy\",\r\n    \"type\": \"pelicula\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/movies/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["movies", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "12"
+                }
+              ]
+            },
+            "description": "# ***Edit Película***\n\n*   Este endpoint recibe un ID numérico en los params (para especificar que película editar) y un objeto JSON en el body que indique los datos que vamos a actualizar.\n*   Es importante rellenar todos los campos y que estos contengan información válida."
+          },
+          "response": []
+        },
+        {
+          "name": "deleteMovie",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "x-token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTY1OTI1OTExNSwiZXhwIjoxNjU5MjczNTE1fQ.Ge4DZ9IL9LE5vaWeFBiuRMeGnc1bcJL9iRT5gyUzHH8",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/movies/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["movies", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "12"
+                }
+              ]
+            },
+            "description": "# ***Delete Película***\n\n*   Este endpoint recibe un ID numérico en los params que indica que película eliminar."
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

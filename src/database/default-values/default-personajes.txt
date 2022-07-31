@@ -1,0 +1,72 @@
+[
+  {
+    "img": "https://static.wikia.nocookie.net/disney/images/d/d8/MickeyMouse.png/revision/latest?cb=20140304090828&path-prefix=es",
+    "name": "Mickey Mouse",
+    "age": 96,
+    "weight": 20,
+    "history": "Mickey Mouse (también llamado Ratón Mickey) es un personaje de dibujos animados y emblema de la compañía Disney. Creado el 18 de noviembre de 1928, este ratón tiene un origen disputado. La leyenda oficial explica que fue creado por Walt Disney durante un viaje en tren de vuelta a California tras descubrir que no poseía el copyright de Oswald, el conejo afortunado, por lo que concibió un ratoncito vivaz de orejas grandes que quiso llamar Mortimer."
+  },
+  {
+    "img": "https://static.wikia.nocookie.net/disney/images/6/6f/Donald_Duck.png/revision/latest/scale-to-width-down/350?cb=20140427112158&path-prefix=es",
+    "name": "Donald Duck",
+    "age": 80,
+    "weight": 18,
+    "history": "Donald Duck (o Pato Donald) es un personaje de Disney, caracterizado por ser un pato blanco antropomórfico de ojos celestes con el pico, piernas y patas anaranjadas. Generalmente viste una camisa de estilo marinero y un sombrero, sin pantalones (excepto cuando va a nadar). Donald ha protagonizado multitud de dibujos animados e historietas."
+  },
+  {
+    "img": "https://static.wikia.nocookie.net/disney/images/e/e5/Goofy.png/revision/latest/scale-to-width-down/350?cb=20140306174418&path-prefix=es",
+    "name": "Goofy",
+    "age": 90,
+    "weight": 25,
+    "history": "Goofy es un personaje de los estudios de Walt Disney. Es un perro de características antropomórficas y es uno de los mejores amigos de Mickey Mouse. Es el padre de Max Goof (Maxi, apodado por él), en lugar de los sobrinos que tienen la mayoría de los personajes (Mickey, Minnie, Donald...)."
+  },
+  {
+    "img": "https://static.wikia.nocookie.net/disney/images/3/35/Pluto.png/revision/latest?cb=20140127172132&path-prefix=es",
+    "name": "Pluto",
+    "age": 90,
+    "weight": 15,
+    "history": "Pluto es un perro amarillo muy bien entrenado por su dueño Mickey Mouse. Él es el mejor amigo de Mickey y es muy leal a él desde que era un cachorro. Pluto odia a los gatos, por lo que su mayor rival es Fígaro, el gato de Minnie Mouse. Constantemente, los dos compiten por la atención y el amor de Minnie, aunque en realidad ellos son también muy amigos."
+  },
+  {
+    "img": "https://static.wikia.nocookie.net/disney/images/1/14/MinnieMouse.png/revision/latest?cb=20140306174453&path-prefix=es",
+    "name": "Minnie Mouse",
+    "age": 80,
+    "weight": 18,
+    "history": "Minnie Mouse es un personaje que aparece en dibujos animados, e historietas y cómics de The Walt Disney Company. La tira cómica de 'El Rayo' (publicado el 2 de mayo de 1942) por Merril de Maris y Floyd Gottfredson dio su nobre completo como Minerva Mouse. Es la eterna novia de Mickey Mouse."
+  },
+  {
+    "img": "https://static.wikia.nocookie.net/disney/images/2/21/DaisyDuck.png/revision/latest?cb=20140306174526&path-prefix=es",
+    "name": "Daisy Duck",
+    "age": 102,
+    "weight": 18,
+    "history": "Fue creada en 1920 como la contraparte femenina del Pato Donald y su debut fue en la animación 'Mr. Duck Steps Out'. Es una prima lejana de Donald. Hasta 1940 era llamada Donna Duck. Aunque es la novia de Donald, ocasionalmente tiene citas con Narciso Bello. Daisy tiene el temperamento de Donald, pero es un poco más sofisticada."
+  },
+  {
+    "img": "https://static.wikia.nocookie.net/disney/images/c/c7/Pinocho.png/revision/latest?cb=20130906090933&path-prefix=es",
+    "name": "Pinocho",
+    "age": 102,
+    "weight": 7,
+    "history": "Pinocho es una marioneta, creado a partir de un tronco de pino, por el anciano Geppetto. Mientras Geppetto duerme, aparece el Hada Azul, quien beneficia a Geppetto por ser una buena persona dando vida al muñeco de madera."
+  },
+  {
+    "img": "https://static.wikia.nocookie.net/disney/images/8/85/Profile_-_Hercules.jpg/revision/latest/scale-to-width-down/350?cb=20200330212414&path-prefix=es",
+    "name": "Hércules",
+    "age": 25,
+    "weight": 78,
+    "history": "Es el hijo de Zeus y Hera. Pudo descubrir el significado de ser un Héroe verdadero: el poder de un héroe no está en su fuerza, si no en la fuerza de su corazón. Se hizo amigo de Fil y de Pegaso, y se enamoró de Megara. Éste chico cumplió el sueño de su entrenador Phil, convirtiéndose en el mayor héroe de la historia."
+  },
+  {
+    "img": "https://static.wikia.nocookie.net/disney/images/b/b3/Mal%C3%A9fica.png/revision/latest/scale-to-width-down/350?cb=20120926081318&path-prefix=es",
+    "name": "Maléfica",
+    "age": 73,
+    "weight": 54,
+    "history": "Ella es la personificación del mal, y es responsable de hacer caer toda desgracia sobre el reino del Rey Stéfano. Maléfica posee grandes poderes. Siempre tiene en sus manos un bastón, con una bola de cristal en uno de sus extremos. También pronuncia hechizos que le sirven para acabar con el Príncipe Felipe y las tres hadas buenas, otros los utiliza para invocar rayos, y crear tormentas, o le sirven para teletransportarse o cambiar de forma."
+  },
+  {
+    "img": "https://static.wikia.nocookie.net/disney/images/8/83/FaMul%C3%A1n.png/revision/latest?cb=20130830100817&path-prefix=es",
+    "name": "Fa Mulán",
+    "age": 22,
+    "weight": 58,
+    "history": "Es una joven muchacha china que se alista en el ejército en lugar de su padre disfrazada de chico para la lucha contra los Hunos, ya que se preocupa de su padre. Mushu, un dragón que dice ser enviado por sus antepasados, le ayuda a adaptarse y a que le vaya todo bien. También lleva con ella a un pequeño Grillo de la Suerte regalado por su abuela."
+  }
+]

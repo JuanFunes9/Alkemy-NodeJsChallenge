@@ -46,8 +46,7 @@ const getPersonajesById = async (req, res) => {
 }
 
 const newPersonaje = async (req, res) => {
-  let { img, name, age, weight, history } = req.body;
-  name = name.toLowerCase();
+  const { img, name, age, weight, history } = req.body;
 
   const newPersonaje = await Personajes.create({
     img,
@@ -62,8 +61,7 @@ const newPersonaje = async (req, res) => {
 
 const editPersonaje = async (req, res) => {
   const { id } = req.params;
-  let { img, name, age, weight, history } = req.body;
-  name = name.toLowerCase();
+  const { img, name, age, weight, history } = req.body;
 
   const editedPersonaje = await Personajes.update({
     img,

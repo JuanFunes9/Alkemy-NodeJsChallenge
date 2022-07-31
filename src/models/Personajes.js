@@ -24,7 +24,7 @@ const Personajes = sequelize.define( 'personajes', {
     allowNull: false
   },
   history: {
-    type: DataTypes.STRING,
+    type: DataTypes.STRING(2000),
     allowNull: false
   }
 }, {

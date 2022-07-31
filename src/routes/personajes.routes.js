@@ -1,11 +1,15 @@
 const router = require( 'express' ).Router();
-const { check } = require( 'express-validator' );
-//middleware:
-const validarCampos = require( '../middlewares/validar-campos' );
+
+//middlewares:
 const validarJWT = require( '../middlewares/validar-jwt' );
-//helpers:
-const validarId = require( '../helpers/validar-id' );
-//controller:
+const {
+  validarGetPersonajeById,
+  validarNewPersonaje,
+  validarEditPersonaje,
+  validarDeletePersonaje
+} = require( '../middlewares/validar-personajes' );
+
+//controllers:
 const {
   getPersonajes,
   getPersonajesById,
@@ -17,39 +21,12 @@ const {
 //rutes:
 router.get( '/', validarJWT, getPersonajes );
 
-router.get( '/:id', [
-  validarJWT,
-  check( 'id', 'Ingrese un ID numerico valido mayor a 0' ).isInt({ min: 0 }),
-  validarCampos
-], getPersonajesById );
+router.get( '/:id', validarGetPersonajeById, getPersonajesById );
 
-router.post( '/', [
-  validarJWT,
-  check( 'img', 'La imagen URL es obligatoria.' ).notEmpty(),
-  check( 'name', 'El nombre es obligatorio.' ).notEmpty(),
-  check( 'age', 'La edad debe ser un valor numerico entre 0 y 200.' ).notEmpty().isInt({min: 0, max: 200}),
-  check( 'weight', 'El peso debe ser un valor numerico entre 0 y 2000.' ).notEmpty().isInt({min: 0, max: 2000}),
-  check( 'history', 'La historia o descripcion es obligatoria.' ).notEmpty(),
-  validarCampos
-], newPersonaje );
+router.post( '/', validarNewPersonaje, newPersonaje );
 
-router.put( '/:id', [
-  validarJWT,
-  check( 'img', 'La imagen URL es obligatoria.' ).notEmpty(),
-  check( 'name', 'El nombre es obligatorio.' ).notEmpty(),
-  check( 'age', 'La edad debe ser un valor numerico entre 0 y 200.' ).notEmpty().isInt({min: 0, max: 200}),
-  check( 'weight', 'El peso debe ser un valor numerico entre 0 y 1000.' ).notEmpty().isInt({min: 0, max: 1000}),
-  check( 'history', 'La historia o descripcion es obligatoria.' ).notEmpty(),
-  check( 'id', 'Ingrese un ID numerico valido mayor a 0.' ).isInt({ min: 0 }),
-  check( 'id' ).custom( validarId ),
-  validarCampos
-], editPersonaje );
+router.put( '/:id', validarEditPersonaje, editPersonaje );
 
-router.delete( '/:id', [
-  validarJWT,
-  check( 'id', 'Ingrese un ID numerico valido mayor a 0.' ).isInt({ min: 0 }),
-  check( 'id' ).custom( validarId ),
-  validarCampos
-], deletePersonaje );
+router.delete( '/:id', validarDeletePersonaje, deletePersonaje );
 
 module.exports = router;

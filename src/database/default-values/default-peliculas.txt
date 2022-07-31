@@ -1,0 +1,82 @@
+[
+  {
+    "img": "https://static.wikia.nocookie.net/disney/images/d/d3/Fantasia.png/revision/latest/scale-to-width-down/320?cb=20140712091125&path-prefix=es",
+    "title": "Fantasía",
+    "year": 1940,
+    "rate": 5,
+    "gender": "fantasy",
+    "type": "movie"
+  },
+  {
+    "img": "https://static.wikia.nocookie.net/disney/images/6/6f/WhoFramedRogerRabbit.png/revision/latest?cb=20140111111733&path-prefix=es",
+    "title": "¿Quién engañó a Roger Rabbit?",
+    "year": 1988,
+    "rate": 3.8,
+    "gender": "comedy",
+    "type": "movie"
+  },
+  {
+    "img": "https://static.wikia.nocookie.net/disney/images/3/3c/El_drag%C3%B3n_chiflafo.jpg/revision/latest/scale-to-width-down/180?cb=20131119211014&path-prefix=es",
+    "title": "El Dragón Chiflado",
+    "year": 1968,
+    "rate": 3.8,
+    "gender": "fantasy",
+    "type": "movie"
+  },
+  {
+    "img": "https://static.wikia.nocookie.net/disney/images/9/96/LosTresCaballeros.png/revision/latest?cb=20111211173245&path-prefix=es",
+    "title": "Los Tres Caballeros",
+    "year": 1944,
+    "rate": 4.2,
+    "gender": "fantasy",
+    "type": "movie"
+  },
+  {
+    "img": "https://static.wikia.nocookie.net/disney/images/2/29/Extremadamente_goofy.jpg/revision/latest/scale-to-width-down/180?cb=20120103170858&path-prefix=es",
+    "title": "An Extremely Goofy Movie",
+    "year": 2000,
+    "rate": 2.4,
+    "gender": "comedy",
+    "type": "movie"
+  },
+  {
+    "img": "https://static.wikia.nocookie.net/disney/images/b/bc/MickeyDonaldGoofy-TheThreeMusketeers.png/revision/latest/scale-to-width-down/222?cb=20140426091444&path-prefix=es",
+    "title": "Mickey, Donald y Goofy: Los Tres Mosqueteros",
+    "year": 2004,
+    "rate": 4.7,
+    "gender": "fantasy",
+    "type": "movie"
+  },
+  {
+    "img": "https://static.wikia.nocookie.net/disney/images/9/99/Mickey_prince_and_pauper_poster_7808.jpg/revision/latest?cb=20170628151844&path-prefix=es",
+    "title": "The Prince and the Pauper",
+    "year": 1990,
+    "rate": 4.3,
+    "gender": "fantasy",
+    "type": "movie"
+  },
+  {
+    "img": "https://static.wikia.nocookie.net/disney/images/0/0c/Movie_Poster.jpg/revision/latest/scale-to-width-down/350?cb=20210414173906&path-prefix=es",
+    "title": "Mickey's Christmas Carol",
+    "year": 1983,
+    "rate": 4.1,
+    "gender": "fantasy",
+    "type": "movie"
+  },
+  {
+    "img": "https://static.wikia.nocookie.net/disney/images/a/a0/Mickey%27s_Magical_Christmas.jpg/revision/latest/scale-to-width-down/350?cb=20190112155617&path-prefix=es",
+    "title": "Mickey's Magical Christmas: Snowed in at the House of Mouse",
+    "year": 2001,
+    "rate": 1.4,
+    "gender": "fantasy",
+    "type": "movie"
+  },
+  {
+    "img": "https://static.wikia.nocookie.net/disney/images/2/26/PinochoDisney.jpg/revision/latest/scale-to-width-down/327?cb=20160201132010&path-prefix=es",
+    "title": "Pinocho",
+    "year": 1940,
+    "rate": 5.0,
+    "gender": "fantasy",
+    "type": "movie"
+  }
+]

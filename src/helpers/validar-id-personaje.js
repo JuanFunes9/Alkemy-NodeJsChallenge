@@ -1,6 +1,6 @@
 const Personajes = require('../models/Personajes');
 
-const validarId = async (id) => {
+const validarIdPersonaje = async (id) => {
   if (id > 0) {
     const idValido = await Personajes.findOne({
       where: { id }
@@ -12,4 +12,4 @@ const validarId = async (id) => {
   }
 }
 
-module.exports = validarId;
+module.exports = validarIdPersonaje;

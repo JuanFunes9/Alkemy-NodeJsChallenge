@@ -3,7 +3,7 @@ const { Op } = require('sequelize');
 const Peliculas = require( '../models/Peliculas' )
 
 const getMovies = async( req, res ) => {
-  const { title, gender, order } = req.query;
+  let { title, gender, order } = req.query;
 
   let query = {
     attributes: ["id", "img", "title", "year"]
@@ -14,9 +14,9 @@ const getMovies = async( req, res ) => {
   } else if (gender) {
     query.where = { gender: { [Op.eq]: gender } }
   } else if (order == 'ASC') {
-    query.order = [[ 'year', 'ASC' ]]
+    query.order = [[ 'year', 'asc' ]]
   } else if (order == 'DESC') {
-    query.order = [ ['year', 'DESC'] ]
+    query.order = [ ['year', 'desc'] ]
   }
 
   console.log(query)

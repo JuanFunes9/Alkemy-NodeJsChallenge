@@ -23,6 +23,7 @@ const newUsuario = async (req, res) => {
   sendEmail( email )
 
   res.json({
+    msg: "Usuario creado con exito.",
     email,
     userName
   })

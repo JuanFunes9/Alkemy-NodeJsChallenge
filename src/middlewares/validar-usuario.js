@@ -1,4 +1,4 @@
-const bcryptjs = require( 'bcryptjs' );
+const bcryptjs = require('bcryptjs');
 //model:
 const Usuarios = require('../models/Usuarios');
 
@@ -27,7 +27,7 @@ const validarUsuario = async (req, res, next) => {
   const validPasswd = bcryptjs.compareSync(password, user.password);
   if (!validPasswd) {
     return res.status(400).json({
-      error: `La password no es valida.`
+      error: "La contraseña es incorrecta."
     })
   }
 
